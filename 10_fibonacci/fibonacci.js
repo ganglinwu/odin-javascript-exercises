@@ -1,4 +1,16 @@
-const fibonacci = function() {
+const fibonacci = function(input) {
+    if (input == 1) {
+        return 1;
+    }
+    else if (input == 2) {
+        return 1;
+    }
+    else if (input <= 0) {
+        return 'OOPS'
+    }
+    else {
+        return fibonacci(input-1) + fibonacci(input-2);
+    }
 
 };
 
