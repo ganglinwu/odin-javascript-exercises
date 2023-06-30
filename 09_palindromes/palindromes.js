@@ -1,20 +1,20 @@
 const palindromes = function (str) {
-    const array = str.toLowerCase().split('');
-    const reverseArray = array.reduce((arr,letter)=>{
-        if (letter.toString().charCodeAt(0)>= 97 && letter.toString().charCodeAt(0)<= 122) {
-            arr.unshift(letter);
+    const array = str.toLowerCase().split('').reduce((arr, char)=> {
+        if (char.toString().charCodeAt(0)>= 97 && char.toString().charCodeAt(0)<= 122) {
+            arr.push(char);
         }
         return arr;
-    },[])
+    }, []);
+    const reverseArray = array.reduce((arr, letter)=> {
+        arr.unshift(letter);
+        return arr;
+    }, [])
     reverseStr = reverseArray.join('');
-    return (str === reverseStr) ? true : false;
+    str = array.join('');
+    return str === reverseStr ? true : false;
 };
 
-console.log('1 ' + palindromes('racecar'));
-console.log('2 ' + palindromes('racecar!'));
-console.log('3 ' + palindromes('Racecar!'));
-
-// need to think of a way to exclude punctuation
+console.log(palindromes('ZZZZ car, a man, a maracaz.'));
 
 // Do not edit below this line
 module.exports = palindromes;
